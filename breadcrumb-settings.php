@@ -9,7 +9,12 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 		{
 	
 			$breadcrumb_text = get_option( 'breadcrumb_text' );	
-			$breadcrumb_separator = get_option( 'breadcrumb_separator' );				
+			$breadcrumb_separator = get_option( 'breadcrumb_separator' );
+			$breadcrumb_font_size = get_option( 'breadcrumb_font_size' );			
+			$breadcrumb_text_color = get_option( 'breadcrumb_text_color' );			
+			$breadcrumb_themes = get_option( 'breadcrumb_themes' );			
+			
+							
 			
 		}
 	else
@@ -21,7 +26,20 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 				update_option('breadcrumb_text', $breadcrumb_text);		
 
 				$breadcrumb_separator = sanitize_text_field($_POST['breadcrumb_separator']);
-				update_option('breadcrumb_separator', $breadcrumb_separator);			
+				update_option('breadcrumb_separator', $breadcrumb_separator);
+				
+				$breadcrumb_font_size = sanitize_text_field($_POST['breadcrumb_font_size']);
+				update_option('breadcrumb_font_size', $breadcrumb_font_size);				
+				
+				$breadcrumb_link_color = sanitize_text_field($_POST['breadcrumb_link_color']);
+				update_option('breadcrumb_link_color', $breadcrumb_link_color);				
+				
+				$breadcrumb_separator_color = sanitize_text_field($_POST['breadcrumb_separator_color']);
+				update_option('breadcrumb_separator_color', $breadcrumb_separator_color);	
+								
+				$breadcrumb_themes = sanitize_text_field($_POST['breadcrumb_themes']);
+				update_option('breadcrumb_themes', $breadcrumb_themes);				
+							
 		
 		
 		
@@ -62,7 +80,9 @@ if ( ! defined('ABSPATH')) exit; // if direct access
                     <p class="option-title">Breadcrumb Text</p>
                     <p class="option-info"></p>
                     <input type="text" name="breadcrumb_text" value="<?php if(!empty($breadcrumb_text)) echo $breadcrumb_text; ?>" />
-                </div>  
+                </div>
+                
+                 
 				 
                 
 				<div class="option-box">
@@ -70,8 +90,37 @@ if ( ! defined('ABSPATH')) exit; // if direct access
                     <p class="option-info">Link Separator, ex: &raquo;</p>
                     <input type="text" name="breadcrumb_separator" value="<?php if(!empty($breadcrumb_separator)) echo $breadcrumb_separator; ?>" />
                 </div>                 
-				                
+
+				<div class="option-box">
+                    <p class="option-title">Breadcrumb font size</p>
+                    <p class="option-info">ex: 14px</p>
+                    <input type="text" name="breadcrumb_font_size" value="<?php if(!empty($breadcrumb_font_size)) echo $breadcrumb_font_size; ?>" />
+                </div>  
+
+				<div class="option-box">
+                    <p class="option-title">Breadcrumb Text Color</p>
+                    <p class="option-info"></p>
+                    <input class="breadcrumb_link_color" type="text" name="breadcrumb_link_color" value="<?php if(!empty($breadcrumb_link_color)) echo $breadcrumb_link_color; ?>" />
+                </div>  
                 
+ 				<div class="option-box">
+                    <p class="option-title">Breadcrumb Separator Color</p>
+                    <p class="option-info"></p>
+                    <input class="breadcrumb_separator_color" type="text" name="breadcrumb_separator_color" value="<?php if(!empty($breadcrumb_separator_color)) echo $breadcrumb_separator_color; ?>" />
+                </div>                 
+                            
+				<div class="option-box">
+                    <p class="option-title">Breadcrumb Themes</p>
+                    <p class="option-info"></p>
+                    
+                    <select name="breadcrumb_themes">
+                    	<option value="theme1" <?php if($breadcrumb_themes == 'theme1') echo 'selected'; ?> >Themes 1</option>
+                    	<option value="theme2" <?php if($breadcrumb_themes == 'theme2') echo 'selected'; ?> >Themes 2</option>                        
+                    	<option value="theme3" <?php if($breadcrumb_themes == 'theme3') echo 'selected'; ?> >Themes 3</option>                        
+                    	<option value="theme4" <?php if($breadcrumb_themes == 'theme4') echo 'selected'; ?> >Themes 4</option>                        
+                    </select>
+                    
+                </div>                
                 
                 
                 

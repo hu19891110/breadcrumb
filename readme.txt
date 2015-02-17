@@ -1,6 +1,6 @@
 === Breadcrumb ===
 	Contributors: paratheme
-	Donate link: http://paratheme.com
+	Donate link: http://paratheme.com/donate-us/
 	Tags: breadcrumb, breadcrumbs
 	Requires at least: 3.8
 	Tested up to: 4.1
@@ -12,7 +12,8 @@
 
 == Description ==
 
-Use via short-codes any where to display awesome Breadcrumb on your WordPress site.
+Breadcrumb is awesome feature for visitors keep track thier location, by this plugin you can display Breadcrumb navigation anywhere your website via short-codes.
+
 
 
 ### Breadcrumb by http://paratheme.com

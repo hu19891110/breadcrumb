@@ -37,15 +37,15 @@ function breadcrumb_paratheme_init_scripts()
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('breadcrumb_js', plugins_url( '/js/scripts.js' , __FILE__ ) , array( 'jquery' ));
 		wp_enqueue_style('breadcrumb_style', breadcrumb_plugin_url.'css/style.css');		
-
+		wp_enqueue_style('breadcrumb-themes', breadcrumb_plugin_url.'css/breadcrumb-themes.css');
 
 		//ParaAdmin
 		wp_enqueue_style('ParaAdmin', breadcrumb_plugin_url.'ParaAdmin/css/ParaAdmin.css');
 		//wp_enqueue_style('ParaIcons', breadcrumb_plugin_url.'ParaAdmin/css/ParaIcons.css');		
 		wp_enqueue_script('ParaAdmin', plugins_url( 'ParaAdmin/js/ParaAdmin.js' , __FILE__ ) , array( 'jquery' ));
 		
-	
-		
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'breadcrumb_color_picker', plugins_url('/js/color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
 		
 	}
 add_action("init","breadcrumb_paratheme_init_scripts");
