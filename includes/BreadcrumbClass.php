@@ -69,13 +69,28 @@ class breadcrumb
 						$current_attachment_link = get_attachment_link($current_attachment_id);				
 						
 						
-						$html .= '<li><a title="Home" href="'.get_bloginfo('home').'">Home</a></li>';
+						$html .= '<li><a title="Home" href="'.get_bloginfo('url').'">Home</a></li>';
 						$html .= '<li><span class="separator">'.$breadcrumb_separator.'</span><a href="'.$current_attachment_link.'">'.get_the_title().'</a><span>'.$breadcrumb_separator.'</span></li>';
 					}
 
 				else if(is_singular())
 					{
-						$html .= '<li><a title="Home" href="'.get_bloginfo('home').'">Home</a></li>';
+						
+						$post_parent_id = wp_get_post_parent_id(get_the_ID());
+						$parent_title = get_the_title($post_parent_id);
+						$paren_get_permalink = get_permalink($post_parent_id);
+						
+						
+						
+						$html .= '<li><a title="Home" href="'.get_bloginfo('url').'">Home</a></li>';
+						
+						
+						
+						if(!empty($post_parent_id) || $post_parent_id!= 0)
+						$html .= '<li><span>&raquo;</span><a title="Home" href="'.$paren_get_permalink.'">'.$parent_title.'</a></li>';	
+						
+						
+						
 						$html .= '<li><span  class="separator">'.$breadcrumb_separator.'</span><a title="'.get_the_title().'" href="#">'.get_the_title().'</a><span class="separator">'.$breadcrumb_separator.'</span></li>';
 					}
 					
@@ -84,7 +99,7 @@ class breadcrumb
 						$queried_object = get_queried_object();
 						$term_name = $queried_object->name;				
 						
-						$html .= '<li><a title="Home" href="'.get_bloginfo('home').'">Home</a></li>';
+						$html .= '<li><a title="Home" href="'.get_bloginfo('url').'">Home</a></li>';
 						$html .= '<li><span class="separator">'.$breadcrumb_separator.'</span><a href="#">'.$term_name.'</a><span class="separator">'.$breadcrumb_separator.'</span></li>';
 					}
 					
@@ -94,7 +109,7 @@ class breadcrumb
 						$current_cat_id = get_query_var('cat');
 						$parent_cat_links = get_category_parents( $current_cat_id, true, $breadcrumb_separator );
 		
-						$html .= '<li><a title="Home" href="'.get_bloginfo('home').'">Home</a></li>';
+						$html .= '<li><a title="Home" href="'.get_bloginfo('url').'">Home</a></li>';
 						$html .= '<li><span class="separator">'.$breadcrumb_separator.'</span>'.$parent_cat_links.'</li>';
 					}
 					
@@ -108,7 +123,7 @@ class breadcrumb
 						$current_tag_link = get_tag_link($current_tag_id);;				
 						//$parent_cat_links = get_category_parents( $current_cat_id, true, $breadcrumb_separator );
 		
-						$html .= '<li><a title="Home" href="'.get_bloginfo('home').'">Home</a><span class="separator">'.$breadcrumb_separator.'</span></li>';			
+						$html .= '<li><a title="Home" href="'.get_bloginfo('url').'">Home</a><span class="separator">'.$breadcrumb_separator.'</span></li>';			
 						$html .= '<li><a title="Home" href="'.$current_tag_link.'">'.$current_tag_name.'</a><span class="separator">'.$breadcrumb_separator.'</span></li>';
 	
 					}			
@@ -116,7 +131,7 @@ class breadcrumb
 				else if(is_author())
 					{
 		
-						$html .= '<li><a title="Home" href="'.get_bloginfo('home').'">Home</a></li>';
+						$html .= '<li><a title="Home" href="'.get_bloginfo('url').'">Home</a></li>';
 						$html .= '<li><span class="separator">'.$breadcrumb_separator.'</span><a href="'.esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ).'">'.get_the_author().'</a></li>';
 					}
 					
@@ -125,14 +140,14 @@ class breadcrumb
 		
 						$current_query = sanitize_text_field(get_query_var('s'));
 		
-						$html .= '<li><a title="Home" href="'.get_bloginfo('home').'">Home</a></li>';
+						$html .= '<li><a title="Home" href="'.get_bloginfo('url').'">Home</a></li>';
 						$html .= '<li><span class="separator">'.$breadcrumb_separator.'</span><a href="#">'.$current_query.'</a><span class="separator">'.$breadcrumb_separator.'</span></li>';
 					}			
 
 				else if(is_404())
 					{
 		
-						$html .= '<li><a title="Home" href="'.get_bloginfo('home').'">Home</a></li>';
+						$html .= '<li><a title="Home" href="'.get_bloginfo('url').'">Home</a></li>';
 						$html .= '<li><span class="separator">'.$breadcrumb_separator.'</span><a href="#">404</a></li>';
 					}
 					
