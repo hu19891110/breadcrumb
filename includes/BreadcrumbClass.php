@@ -12,10 +12,37 @@ class breadcrumb
 				return get_option($option_name);
 			}	
 		
-		
+		public function breadcrumb_get_page_childs()
+			{
+				$breadcrumb_separator = $this->breadcrumb_get_option('breadcrumb_separator');
+				
+				
+				global $post;
+				$home = get_page(get_option('page_on_front'));
+				
+				$html = '';
+				
+				for ($i = count($post->ancestors)-1; $i >= 0; $i--) {
+					if (($home->ID) != ($post->ancestors[$i]))
+						{
+							$html.= '<li><span  class="separator">'.$breadcrumb_separator.'</span>';
+							$html.= '<a href="';
+							$html.= get_permalink($post->ancestors[$i]); 
+							$html.= '">';
+							$html.= get_the_title($post->ancestors[$i]);
+							$html.= '</a><li> ';
+						}
+				}
+				
+				$html.= '<span class="separator">'.$breadcrumb_separator.'</span><a title="'.get_the_title().'" href="#">'.get_the_title().'</a><span class="separator">'.$breadcrumb_separator.'</span>';
+				
+				return $html;
+			}		
+			
+			
 		public function breadcrumb_html()
 			{
-
+				global $post;
 				$breadcrumb_text = $this->breadcrumb_get_option('breadcrumb_text');
 				$breadcrumb_separator = $this->breadcrumb_get_option('breadcrumb_separator');
 				$breadcrumb_font_size = $this->breadcrumb_get_option('breadcrumb_font_size');				
@@ -84,14 +111,19 @@ class breadcrumb
 						
 						$html .= '<li><a title="Home" href="'.get_bloginfo('url').'">Home</a></li>';
 						
+						if(is_page() && $post->post_parent)
+							{
+								$html .= $this->breadcrumb_get_page_childs(); // return array
+	
+							}
+
+						else
+							{
+								$html .= '<li><span  class="separator">'.$breadcrumb_separator.'</span><a title="'.get_the_title().'" href="#">'.get_the_title().'</a><span class="separator">'.$breadcrumb_separator.'</span></li>';
+							}
+
 						
 						
-						if(!empty($post_parent_id) || $post_parent_id!= 0)
-						$html .= '<li><span>&raquo;</span><a title="Home" href="'.$paren_get_permalink.'">'.$parent_title.'</a></li>';	
-						
-						
-						
-						$html .= '<li><span  class="separator">'.$breadcrumb_separator.'</span><a title="'.get_the_title().'" href="#">'.get_the_title().'</a><span class="separator">'.$breadcrumb_separator.'</span></li>';
 					}
 					
 				else if( is_tax())

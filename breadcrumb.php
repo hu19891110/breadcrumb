@@ -3,7 +3,7 @@
 Plugin Name: Breadcrumb
 Plugin URI: http://paratheme.com
 Description: Awesome Breadcrumb for wordpress.
-Version: 1.1
+Version: 1.2
 Author: paratheme
 Author URI: http://paratheme.com
 License: GPLv2 or later
@@ -56,7 +56,7 @@ register_activation_hook(__FILE__, 'breadcrumb_paratheme_activation');
 
 function breadcrumb_paratheme_activation()
 	{
-		$breadcrumb_version= "1.1";
+		$breadcrumb_version= "1.2";
 		update_option('breadcrumb_version', $breadcrumb_version); //update plugin version.
 		
 		$breadcrumb_customer_type= "free"; //customer_type "pro"

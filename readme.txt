@@ -4,7 +4,7 @@
 	Tags: breadcrumb, breadcrumbs
 	Requires at least: 3.8
 	Tested up to: 4.1.1
-	Stable tag: 1.1
+	Stable tag: 1.2
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,9 @@ use this short-code any where to display breadcrumb
 
 == Changelog ==
 
+	= 1.2 =
+    * 03/04/2015 - add - unlimited depth parent page link on breadcrumb.
+	
 	= 1.1 =
     * 23/03/2015 - add - parent page link on breadcrumb.
 	
