@@ -16,7 +16,7 @@ define('breadcrumb_plugin_url', WP_PLUGIN_URL . '/' . plugin_basename( dirname(_
 define('breadcrumb_plugin_dir', plugin_dir_path( __FILE__ ) );
 define('breadcrumb_wp_url', 'https://wordpress.org/plugins/breadcrumb/' );
 define('breadcrumb_wp_reviews', 'http://wordpress.org/support/view/plugin-reviews/breadcrumb' );
-define('breadcrumb_pro_url','http://paratheme.com/' );
+define('breadcrumb_pro_url','http://paratheme.com/items/breadcrumb-awesome-breadcrumbs-style-navigation-for-wordpress/' );
 define('breadcrumb_demo_url', 'http://paratheme.com' );
 define('breadcrumb_conatct_url', 'http://paratheme.com/contact' );
 define('breadcrumb_qa_url', 'http://paratheme.com/qa/' );

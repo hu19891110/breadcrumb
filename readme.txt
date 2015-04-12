@@ -18,6 +18,7 @@ Breadcrumb is awesome feature for visitors keep track thier location, by this pl
 
 ### Breadcrumb by http://paratheme.com
 
+* [Buy Premium! &raquo;](http://paratheme.com/items/breadcrumb-awesome-breadcrumbs-style-navigation-for-wordpress/)
 
 <br />
 

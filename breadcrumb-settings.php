@@ -10,8 +10,9 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 	
 			$breadcrumb_text = get_option( 'breadcrumb_text' );	
 			$breadcrumb_separator = get_option( 'breadcrumb_separator' );
-			$breadcrumb_font_size = get_option( 'breadcrumb_font_size' );			
-			$breadcrumb_text_color = get_option( 'breadcrumb_text_color' );			
+			$breadcrumb_font_size = get_option( 'breadcrumb_font_size' );
+			$breadcrumb_link_color = get_option( 'breadcrumb_link_color' );					
+			$breadcrumb_separator_color = get_option( 'breadcrumb_separator_color' );			
 			$breadcrumb_themes = get_option( 'breadcrumb_themes' );			
 			
 							
